@@ -1,0 +1,10 @@
+%h1 Contrata nuestro servicio para restaurantes
+
+%li
+  = link_to "entrar", new_restaurant_session_path, class: "btn btn-primary"
+%li
+  = link_to "registro", new_restaurant_registration_path, class: "btn btn-success"
+
+- if restaurant_signed_in?
+  %li
+    = link_to 'Sign out', destroy_user_session_path, :method => :delete

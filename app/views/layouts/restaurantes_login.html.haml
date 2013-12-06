@@ -1,0 +1,24 @@
+!!!
+/[if IE 8] <html class="no-js lt-ie9">
+/ [if gt IE 8]><!
+%html.no-js
+  / <![endif]
+  %head
+    %meta{charset: "utf-8"}
+    %title= content_for?(:title) ? yield(:title) : 'Restaurantes'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Apartamesa'}"}
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}
+    %meta{content: "minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no", name: "viewport"}
+
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,900", rel: "stylesheet", type: "text/css"
+    = stylesheet_link_tag "restaurants", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"
+
+  %body.is-wide
+    #layout.wide-layout
+      = render 'layouts/restaurantes/navigation'
+      = render 'layouts/messages'  
+      = yield
+     
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+    = javascript_include_tag "restaurants", "data-turbolinks-track" => true    

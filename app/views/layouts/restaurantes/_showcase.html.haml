@@ -1,0 +1,33 @@
+/
+  \=========================================
+  showcase
+  \========================================
+%section#showcase-wrapper
+  .container
+    .section-heading-lg
+      Make the right first Impression
+    .showcase-text
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          %p With Responsive and mobile design all the rage these days it is important to know whether visitors to your site are happy and how to detect whether they are happy across desktops, mobiles and tablets.
+        .col-lg-6.col-md-6.col-sm-6
+          %p Now before I show you how to do a 30 second check on this, firstly a quick pointer. It is imperative not to use this method solely as a reason to change your site around. It’s important to dig deeper into stats to measure satisfaction of users.
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          .showcase-links-left
+            %a{href: "#"} Learn More
+        .col-lg-6.col-md-6.col-sm-6
+          .showcase-links-right
+            %a{href: "#"} Live Preview
+    .clearfix
+    .showcase-images
+      = image_tag "restaurantes/showcase/left.png", :class => "left"
+      = image_tag "restaurantes/showcase/1.png", :class => "center"
+      = image_tag "restaurantes/showcase/right.png", :class => "right"
+
+  .promotion
+    .container
+      .heading Are you ready to Buy this Theme?
+      %p Lets face it, social media is tricky business in the wrong hands.
+      .link
+        %a{href: "#"} Only on Themeforest
