@@ -27,13 +27,16 @@ Apartamesa::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.action_mailer.default_url_options = { :host => '0.0.0.0:3000' }
+
   config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
-    port: 25,
-    domain: ENV["DOMAIN_NAME"],
-    authentication: "plain",
-    user_name: ENV["SENDGRID_USERNAME"],
-    password: ENV["SENDGRID_PASSWORD"]
+    :user_name => 'israelbarba',
+    :password => 'powerthunder',
+    :domain => 'yourdomain.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   # Send email in development mode.
   config.action_mailer.perform_deliveries = true

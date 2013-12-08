@@ -1,0 +1,19 @@
+.container.wrapper-form
+  .row
+    .main
+      %h2
+        ¿Olvidaste tu contraseña?
+      
+      = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+        = f.error_notification 
+        = f.input :reset_password_token, :as => :hidden
+        = f.full_error :reset_password_token
+
+        .form-group
+          = f.input :password, :label => "Nueva contraseña", :required => true, :autofocus => true,  input_html: {class: "form-control", id: "inputUsernameEmail"}
+
+        .form-group
+          = f.input :password_confirmation, :label => "Confirma tu nueva contraseña", :required => true,  input_html: {class: "form-control", id: "inputUsernameEmail"}
+          
+        .form-group
+          = f.button :submit, "Cambiar contraseña", class: "btn btn btn-primary"
