@@ -5,6 +5,7 @@
         ¿Olvidaste tu contraseña?
       
       = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+        = f.error_notification
         .form-group
           = f.input :email, label: "Correo", :required => false, :autofocus => true, input_html: {class: "form-control", id: "inputUsernameEmail"}
           
