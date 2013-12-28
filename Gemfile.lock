@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/SamSaffron/annotate_models.git
+  revision: ebe4ba7e3f6ceeb43e4e40078da2b261a1bb71b2
+  specs:
+    annotate (2.6.0.beta1)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -263,6 +271,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate!
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)

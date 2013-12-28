@@ -34,6 +34,8 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  # https://github.com/ctran/annotate_models/pull/106
+  gem 'annotate', :git => 'https://github.com/SamSaffron/annotate_models.git'
 end
 
 group :development, :test do
