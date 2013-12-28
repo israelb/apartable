@@ -1,0 +1,214 @@
+%nav#main-nav
+  .navigation
+    .search
+      %form{"accept-charset" => "UTF-8", :action => "search_results.html", :method => "get"}/
+      %div{:style => "margin:0;padding:0;display:inline"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+      .search-wrapper
+        %input#q.search-query{:autocomplete => "off", :name => "q", :placeholder => "Search...", :type => "text", :value => ""}/
+        %button.btn.btn-link.icon-search{:name => "button", :type => "submit"}
+    %ul.nav.nav-stacked
+      %li.active
+        %a{:href => "index.html"}
+          %i.icon-dashboard
+          %span Dashboard
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-edit
+          %span Forms
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a{:href => "form_styles.html"}
+              %i.icon-caret-right
+              %span Form styles and features
+          %li
+            %a{:href => "form_components.html"}
+              %i.icon-caret-right
+              %span Form components
+          %li
+            %a{:href => "validations.html"}
+              %i.icon-caret-right
+              %span Validations
+          %li
+            %a{:href => "wizard.html"}
+              %i.icon-caret-right
+              %span Wizard
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-tint
+          %span UI Elements & Widgets
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a{:href => "ui_elements.html"}
+              %i.icon-caret-right
+              %span UI Elements
+          %li
+            %a{:href => "widgets.html"}
+              %i.icon-caret-right
+              %span Widgets
+      %li
+        %a{:href => "buttons_and_icons.html"}
+          %i.icon-star
+          %span Buttons & Icons
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-cogs
+          %span Components
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a{:href => "charts.html"}
+              %i.icon-bar-chart
+              %span Charts
+          %li
+            %a{:href => "address_book.html"}
+              %i.icon-envelope
+              %span Address book
+          %li
+            %a{:href => "chats.html"}
+              %i.icon-comments
+              %span Chats
+          %li
+            %a{:href => "inplace_editing.html"}
+              %i.icon-pencil
+              %span In-place editing
+          %li
+            %a{:href => "filetrees.html"}
+              %i.icon-list-ul
+              %span File trees
+          %li
+            %a{:href => "fileupload.html"}
+              %i.icon-file
+              %span Fileupload
+          %li
+            %a{:href => "todo.html"}
+              %i.icon-list-alt
+              %span Todo list
+          %li
+            %a{:href => "wysiwyg.html"}
+              %i.icon-paste
+              %span WYSIWYG
+      %li
+        %a{:href => "tables.html"}
+          %i.icon-table
+          %span Tables
+      %li
+        %a{:href => "grid.html"}
+          %i.icon-th
+          %span Grid
+      %li
+        %a{:href => "type.html"}
+          %i.icon-font
+          %span Typography
+      %li
+        %a{:href => "calendar.html"}
+          %i.icon-calendar
+          %span Calendar
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-book
+          %span Example pages
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a{:href => "invoice.html"}
+              %i.icon-money
+              %span Invoice
+          %li
+            %a{:href => "gallery.html"}
+              %i.icon-picture
+              %span Gallery
+          %li
+            %a{:href => "timeline.html"}
+              %i.icon-time
+              %span Timeline
+          %li
+            %a{:href => "pricing_tables.html"}
+              %i.icon-table
+              %span Pricing tables
+          %li
+            %a{:href => "user_profile.html"}
+              %i.icon-user
+              %span User profile
+          %li
+            %a{:href => "err404.html"}
+              %i.icon-question-sign
+              %span 404 Error
+          %li
+            %a{:href => "err500.html"}
+              %i.icon-cogs
+              %span 500 Error
+          %li
+            %a{:href => "sign_in.html"}
+              %i.icon-signin
+              %span Sign in
+          %li
+            %a{:href => "faq.html"}
+              %i.icon-bullhorn
+              %span FAQ
+          %li
+            %a{:href => "orders.html"}
+              %i.icon-inbox
+              %span Orders
+          %li
+            %a{:href => "search_results.html"}
+              %i.icon-search
+              %span Search results
+          %li
+            %a{:href => "blank.html"}
+              %i.icon-circle-blank
+              %span Blank page
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-cog
+          %span Layouts
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a{:href => "closed_navigation.html"}
+              %i.icon-caret-right
+              %span Closed navigation
+          %li
+            %a{:href => "fixed_header.html"}
+              %i.icon-caret-right
+              %span Fixed header
+          %li
+            %a{:href => "fixed_navigation.html"}
+              %i.icon-caret-right
+              %span Fixed navigation
+          %li
+            %a{:href => "fixed_navigation_and_header.html"}
+              %i.icon-caret-right
+              %span Fixed navigation & header
+      %li
+        %a{:href => "email_templates.html"}
+          %i.icon-mail-reply
+          %span Email templates
+      %li
+        %a.dropdown-collapse{:href => "#"}
+          %i.icon-folder-open-alt
+          %span Four level dropdown
+          %i.icon-angle-down.angle-down
+        %ul.nav.nav-stacked
+          %li
+            %a.dropdown-collapse{:href => "#"}
+              %i.icon-caret-right
+              %span Second level
+              %i.icon-angle-down.angle-down
+            %ul.nav.nav-stacked
+              %li
+                %a.dropdown-collapse{:href => "#"}
+                  %i.icon-caret-right
+                  %span Third level
+                  %i.icon-angle-down.angle-down
+                %ul.nav.nav-stacked
+                  %li
+                    %a{:href => "#"}
+                      %i.icon-caret-right
+                      %span Fourth level
+                  %li
+                    %a{:href => "#"}
+                      %i.icon-caret-right
+                      %span Another fourth level
