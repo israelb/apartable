@@ -1,0 +1,1117 @@
+!!!
+%html.no-js
+  %head
+    
+    /[if lt IE 9]
+      %script{ src: "http://html5shim.googlecode.com/svn/trunk/html5.js", type: "text/javascript" }
+
+    %meta{charset: "utf-8"}
+    %title= content_for?(:title) ? yield(:title) : 'Restaurantes'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Apartamesa'}"}
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}
+    %meta{content: "minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no", name: "viewport"}
+
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,900", rel: "stylesheet", type: "text/css"
+    = stylesheet_link_tag "restaurants_panel", media: "all", "data-turbolinks-track" => true
+
+
+  %body.contrast-red
+    %header
+      .navbar
+        .navbar-inner
+          .container-fluid
+            %a.brand{:href => "index.html"}
+              %i.icon-heart-empty
+              %span.hidden-phone Flatty
+            %a.toggle-nav.btn.pull-left{:href => "#"}
+              %i.icon-reorder
+            %ul.nav.pull-right
+              %li.dropdown.light.only-icon
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-adjust
+                %ul.dropdown-menu.color-settings
+                  %li.color-settings-body-color
+                    .color-title Body color
+                    %a{"data-change-to" => "assets/stylesheets/light-theme.css", :href => "#"}
+                      Light
+                      %small (default)
+                    %a{"data-change-to" => "assets/stylesheets/dark-theme.css", :href => "#"}
+                      Dark
+                    %a{"data-change-to" => "assets/stylesheets/dark-blue-theme.css", :href => "#"}
+                      Dark blue
+                  %li.divider
+                  %li.color-settings-contrast-color
+                    .color-title Contrast color
+                    %a{"data-change-to" => "contrast-red", :href => "#"}
+                      %i.icon-adjust.text-red
+                      Red
+                      %small (default)
+                    %a{"data-change-to" => "contrast-blue", :href => "#"}
+                      %i.icon-adjust.text-blue
+                      Blue
+                    %a{"data-change-to" => "contrast-orange", :href => "#"}
+                      %i.icon-adjust.text-orange
+                      Orange
+                    %a{"data-change-to" => "contrast-purple", :href => "#"}
+                      %i.icon-adjust.text-purple
+                      Purple
+                    %a{"data-change-to" => "contrast-green", :href => "#"}
+                      %i.icon-adjust.text-green
+                      Green
+                    %a{"data-change-to" => "contrast-muted", :href => "#"}
+                      %i.icon-adjust.text-muted
+                      Muted
+                    %a{"data-change-to" => "contrast-fb", :href => "#"}
+                      %i.icon-adjust.text-fb
+                      Facebook
+                    %a{"data-change-to" => "contrast-dark", :href => "#"}
+                      %i.icon-adjust.text-dark
+                      Dark
+                    %a{"data-change-to" => "contrast-pink", :href => "#"}
+                      %i.icon-adjust.text-pink
+                      Pink
+                    %a{"data-change-to" => "contrast-grass-green", :href => "#"}
+                      %i.icon-adjust.text-grass-green
+                      Grass green
+                    %a{"data-change-to" => "contrast-sea-blue", :href => "#"}
+                      %i.icon-adjust.text-sea-blue
+                      Sea blue
+                    %a{"data-change-to" => "contrast-banana", :href => "#"}
+                      %i.icon-adjust.text-banana
+                      Banana
+                    %a{"data-change-to" => "contrast-dark-orange", :href => "#"}
+                      %i.icon-adjust.text-dark-orange
+                      Dark orange
+                    %a{"data-change-to" => "contrast-brown", :href => "#"}
+                      %i.icon-adjust.text-brown
+                      Brown
+              %li.dropdown.medium.only-icon.widget
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-rss
+                  .label 5
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "#"}
+                      .widget-body
+                        .pull-left.icon
+                          %i.icon-user.text-success
+                        .pull-left.text
+                          John Doe signed up
+                          %small.muted just now
+                  %li.divider
+                  %li
+                    %a{:href => "#"}
+                      .widget-body
+                        .pull-left.icon
+                          %i.icon-inbox.text-error
+                        .pull-left.text
+                          New Order #002
+                          %small.muted 3 minutes ago
+                  %li.divider
+                  %li
+                    %a{:href => "#"}
+                      .widget-body
+                        .pull-left.icon
+                          %i.icon-comment.text-warning
+                        .pull-left.text
+                          America Leannon commented Flatty with veeery long text.
+                          %small.muted 1 hour ago
+                  %li.divider
+                  %li
+                    %a{:href => "#"}
+                      .widget-body
+                        .pull-left.icon
+                          %i.icon-user.text-success
+                        .pull-left.text
+                          Jane Doe signed up
+                          %small.muted last week
+                  %li.divider
+                  %li
+                    %a{:href => "#"}
+                      .widget-body
+                        .pull-left.icon
+                          %i.icon-inbox.text-error
+                        .pull-left.text
+                          New Order #001
+                          %small.muted 1 year ago
+                  %li.widget-footer
+                    %a{:href => "#"} All notifications
+              %li.dropdown.dark.user-menu
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %img{:alt => "Mila Kunis", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                  %span.user-name.hidden-phone Mila Kunis
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "user_profile.html"}
+                      %i.icon-user
+                      Profile
+                  %li
+                    %a{:href => "user_profile.html"}
+                      %i.icon-cog
+                      Settings
+                  %li.divider
+                  %li
+                    %a{:href => "sign_in.html"}
+                      %i.icon-signout
+                      Sign out
+            %form.navbar-search.pull-right.hidden-phone{"accept-charset" => "UTF-8", :action => "search_results.html", :method => "get"}/
+            %div{:style => "margin:0;padding:0;display:inline"}
+              %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %button.btn.btn-link.icon-search{:name => "button", :type => "submit"}
+            %input#q_header.search-query.span2{:autocomplete => "off", :name => "q", :placeholder => "Search...", :type => "text", :value => ""}/
+
+
+    #wrapper
+      #main-nav-bg
+      %nav#main-nav
+        .navigation
+          .search
+            %form{"accept-charset" => "UTF-8", :action => "search_results.html", :method => "get"}/
+            %div{:style => "margin:0;padding:0;display:inline"}
+              %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            .search-wrapper
+              %input#q.search-query{:autocomplete => "off", :name => "q", :placeholder => "Search...", :type => "text", :value => ""}/
+              %button.btn.btn-link.icon-search{:name => "button", :type => "submit"}
+          %ul.nav.nav-stacked
+            %li.active
+              %a{:href => "index.html"}
+                %i.icon-dashboard
+                %span Dashboard
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-edit
+                %span Forms
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a{:href => "form_styles.html"}
+                    %i.icon-caret-right
+                    %span Form styles and features
+                %li
+                  %a{:href => "form_components.html"}
+                    %i.icon-caret-right
+                    %span Form components
+                %li
+                  %a{:href => "validations.html"}
+                    %i.icon-caret-right
+                    %span Validations
+                %li
+                  %a{:href => "wizard.html"}
+                    %i.icon-caret-right
+                    %span Wizard
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-tint
+                %span UI Elements & Widgets
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a{:href => "ui_elements.html"}
+                    %i.icon-caret-right
+                    %span UI Elements
+                %li
+                  %a{:href => "widgets.html"}
+                    %i.icon-caret-right
+                    %span Widgets
+            %li
+              %a{:href => "buttons_and_icons.html"}
+                %i.icon-star
+                %span Buttons & Icons
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-cogs
+                %span Components
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a{:href => "charts.html"}
+                    %i.icon-bar-chart
+                    %span Charts
+                %li
+                  %a{:href => "address_book.html"}
+                    %i.icon-envelope
+                    %span Address book
+                %li
+                  %a{:href => "chats.html"}
+                    %i.icon-comments
+                    %span Chats
+                %li
+                  %a{:href => "inplace_editing.html"}
+                    %i.icon-pencil
+                    %span In-place editing
+                %li
+                  %a{:href => "filetrees.html"}
+                    %i.icon-list-ul
+                    %span File trees
+                %li
+                  %a{:href => "fileupload.html"}
+                    %i.icon-file
+                    %span Fileupload
+                %li
+                  %a{:href => "todo.html"}
+                    %i.icon-list-alt
+                    %span Todo list
+                %li
+                  %a{:href => "wysiwyg.html"}
+                    %i.icon-paste
+                    %span WYSIWYG
+            %li
+              %a{:href => "tables.html"}
+                %i.icon-table
+                %span Tables
+            %li
+              %a{:href => "grid.html"}
+                %i.icon-th
+                %span Grid
+            %li
+              %a{:href => "type.html"}
+                %i.icon-font
+                %span Typography
+            %li
+              %a{:href => "calendar.html"}
+                %i.icon-calendar
+                %span Calendar
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-book
+                %span Example pages
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a{:href => "invoice.html"}
+                    %i.icon-money
+                    %span Invoice
+                %li
+                  %a{:href => "gallery.html"}
+                    %i.icon-picture
+                    %span Gallery
+                %li
+                  %a{:href => "timeline.html"}
+                    %i.icon-time
+                    %span Timeline
+                %li
+                  %a{:href => "pricing_tables.html"}
+                    %i.icon-table
+                    %span Pricing tables
+                %li
+                  %a{:href => "user_profile.html"}
+                    %i.icon-user
+                    %span User profile
+                %li
+                  %a{:href => "err404.html"}
+                    %i.icon-question-sign
+                    %span 404 Error
+                %li
+                  %a{:href => "err500.html"}
+                    %i.icon-cogs
+                    %span 500 Error
+                %li
+                  %a{:href => "sign_in.html"}
+                    %i.icon-signin
+                    %span Sign in
+                %li
+                  %a{:href => "faq.html"}
+                    %i.icon-bullhorn
+                    %span FAQ
+                %li
+                  %a{:href => "orders.html"}
+                    %i.icon-inbox
+                    %span Orders
+                %li
+                  %a{:href => "search_results.html"}
+                    %i.icon-search
+                    %span Search results
+                %li
+                  %a{:href => "blank.html"}
+                    %i.icon-circle-blank
+                    %span Blank page
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-cog
+                %span Layouts
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a{:href => "closed_navigation.html"}
+                    %i.icon-caret-right
+                    %span Closed navigation
+                %li
+                  %a{:href => "fixed_header.html"}
+                    %i.icon-caret-right
+                    %span Fixed header
+                %li
+                  %a{:href => "fixed_navigation.html"}
+                    %i.icon-caret-right
+                    %span Fixed navigation
+                %li
+                  %a{:href => "fixed_navigation_and_header.html"}
+                    %i.icon-caret-right
+                    %span Fixed navigation & header
+            %li
+              %a{:href => "email_templates.html"}
+                %i.icon-mail-reply
+                %span Email templates
+            %li
+              %a.dropdown-collapse{:href => "#"}
+                %i.icon-folder-open-alt
+                %span Four level dropdown
+                %i.icon-angle-down.angle-down
+              %ul.nav.nav-stacked
+                %li
+                  %a.dropdown-collapse{:href => "#"}
+                    %i.icon-caret-right
+                    %span Second level
+                    %i.icon-angle-down.angle-down
+                  %ul.nav.nav-stacked
+                    %li
+                      %a.dropdown-collapse{:href => "#"}
+                        %i.icon-caret-right
+                        %span Third level
+                        %i.icon-angle-down.angle-down
+                      %ul.nav.nav-stacked
+                        %li
+                          %a{:href => "#"}
+                            %i.icon-caret-right
+                            %span Fourth level
+                        %li
+                          %a{:href => "#"}
+                            %i.icon-caret-right
+                            %span Another fourth level
+      %section#content
+        .container-fluid
+          #content-wrapper.row-fluid
+            .span12
+              .page-header
+                %h1.pull-left
+                  %i.icon-dashboard
+                  %span Dashboard
+                .pull-right
+                  .btn-group
+                    %a.btn.btn-white.hidden-phone{:href => "#"} Last month
+                    %a.btn.btn-white{:href => "#"} Last week
+                    %a.btn.btn-white{:href => "#"} Today
+                    %a#daterange.btn.btn-white{:href => "#"}
+                      %i.icon-calendar
+                      %span.hidden-phone Custom
+                      %b.caret
+              .alert.alert-info
+                %a.close{"data-dismiss" => "alert", :href => "#"} &times;
+                Welcome to
+                %strong Flatty (v2)
+                \- I hope you'll like it. Don't forget - you can change theme color in top right corner
+                %i.icon-adjust
+                if you want.
+              .row-fluid
+                .span12.box.box-transparent
+                  .row-fluid
+                    .span2.box-quick-link.blue-background
+                      %a{:href => "/orders.html"}
+                        .header
+                          .icon-comments
+                        .content Comments
+                    .span2.box-quick-link.green-background
+                      %a{:href => "#"}
+                        .header
+                          .icon-star
+                        .content Veeeery long title of this quick link
+                    .span2.box-quick-link.orange-background
+                      %a{:href => "#"}
+                        .header
+                          .icon-magic
+                        .content Magic
+                    .span2.box-quick-link.purple-background
+                      %a{:href => "#"}
+                        .header
+                          .icon-eye-open
+                        .content Show
+                    .span2.box-quick-link.red-background
+                      %a{:href => "#"}
+                        .header
+                          .icon-inbox
+                        .content Orders
+                    .span2.box-quick-link.muted-background
+                      %a{:href => "#"}
+                        .header
+                          .icon-refresh
+                        .content Spinning
+              .row-fluid
+                .span6.box
+                  .box-header
+                    .title
+                      %i.icon-inbox
+                      Orders
+                    .actions
+                      %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                        %i.icon-remove
+                      %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                        %i
+                  .box-content
+                    #stats-chart1
+                .span6.box
+                  .box-header
+                    .title
+                      %i.icon-group
+                      Users
+                    .actions
+                      %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                        %i.icon-remove
+                      %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                        %i
+                  .box-content
+                    #stats-chart2
+              %hr.hr-drouble/
+              .row-fluid
+                .span6.box
+                  .box-header
+                    .title
+                      .icon-inbox
+                      Orders
+                    .actions
+                      %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                        %i.icon-remove
+                      %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                        %i
+                  .row-fluid
+                    .span6
+                      .box-content.box-statistic
+                        %h3.title.text-error 191
+                        %small New
+                        .text-error.icon-inbox.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-warning 311
+                        %small In process
+                        .text-warning.icon-check.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-info 3
+                        %small Pending
+                        .text-info.icon-time.align-right
+                    .span6
+                      .box-content.box-statistic
+                        %h3.title.text-primary 3
+                        %small Shipped
+                        .text-primary.icon-truck.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-success 981
+                        %small Completed
+                        .text-success.icon-flag.align-right
+                      .box-content.box-statistic
+                        %h3.title.muted 0
+                        %small Canceled
+                        .muted.icon-remove.align-right
+                .span3.box
+                  .box-header
+                    .title
+                      %i.icon-group
+                      Visitors
+                    .actions
+                      %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                        %i.icon-remove
+                      %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                        %i
+                  .row-fluid
+                    .span12
+                      .box-content.box-statistic
+                        %h3.title.text-error 9100
+                        %small Unique
+                        .text-error.icon-user.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-warning 41 000
+                        %small Pageviews
+                        .text-warning.icon-book.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-primary 12:21
+                        %small Average time
+                        .text-primary.icon-time.align-right
+                .span3.box
+                  .box-header
+                    .title
+                      %i.icon-comments
+                      Comments
+                    .actions
+                      %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                        %i.icon-remove
+                      %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                        %i
+                  .row-fluid
+                    .span12
+                      .box-content.box-statistic
+                        %h3.title.text-error 91
+                        %small New
+                        .text-error.icon-plus.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-success 1
+                        %small Approved
+                        .text-success.icon-ok.align-right
+                      .box-content.box-statistic
+                        %h3.title.text-info 123
+                        %small Pending
+                        .text-info.icon-time.align-right
+              .group-header
+                .row-fluid
+                  .span6.offset3
+                    .text-center
+                      %h2 Todo & Recent activity
+                      %small.muted Items in todo list can be reordered by drag & drop, you can mark them as important, complete, or you can delete them!
+              .row-fluid
+                .span6
+                  .row-fluid.todo-list
+                    .span12.box.box-nomargin
+                      .box-header
+                        .title
+                          %i.icon-list-alt
+                          Todo lists
+                        .actions
+                          %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                            %i.icon-remove
+                          %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                            %i
+                      .box-content.box-no-padding
+                        .sortable-container
+                          %form.new-todo{"accept-charset" => "UTF-8", :action => "#", :method => "post"}/
+                          %div{:style => "margin:0;padding:0;display:inline"}
+                            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                            %input{:name => "authenticity_token", :type => "hidden", :value => "CFC7d00LWKQsSahRqsfD+e/mHLqbaVIXBvlBGe/KP+I="}/
+                          %input#todo_name.span12{:name => "todo[name]", :placeholder => "Type your new todo here...", :type => "text"}/
+                          %button.btn.btn-success{:type => "submit"}
+                            %i.icon-plus
+                          .date.text-contrast Today
+                          %ul.unstyled.sortable{"data-sortable-axis" => "y", "data-sortable-connect" => ".sortable"}
+                            %li.important.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                Voluptas voluptas consequatur omnis nisi.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                Odit veniam occaecati fugit.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.done.item
+                              %label.check.pull-left.todo
+                                %input{:checked => "checked", :type => "checkbox"}/
+                                Ad aliquid voluptas labore magnam et ut.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                %i.icon-envelope-alt
+                                Vel velit fuga dolorum earum rem.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                          .date.text-contrast Due Wed, Sep 19, 2013
+                          %ul.unstyled.sortable{"data-sortable-axis" => "y", "data-sortable-connect" => ".sortable"}
+                            %li.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                Qui pariatur eum ex impedit.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.important.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                Illo aut officiis eum mollitia voluptatibus.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                In et rerum ipsam.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                            %li.item
+                              %label.check.pull-left.todo
+                                %input{:type => "checkbox"}/
+                                Asperiores sed praesentium assumenda recusandae ea.
+                              .actions.pull-right
+                                %a.btn.btn-link.edit.has-tooltip{"data-placement" => "top", :href => "#", :title => "Edit todo"}
+                                  %i.icon-pencil
+                                %a.btn.btn-link.remove.has-tooltip{"data-placement" => "top", :href => "#", :title => "Remove todo"}
+                                  %i.icon-remove
+                                %a.btn.btn-link.important.has-tooltip{"data-placement" => "top", :href => "#", :title => "Mark as important"}
+                                  %i.icon-bookmark-empty
+                .span6
+                  .row-fluid.recent-activity
+                    .span12.box.box-nomargin
+                      .box-header
+                        .title
+                          %i.icon-refresh
+                          Recent activity
+                        .actions
+                          %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                            %i.icon-remove
+                          %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                            %i
+                      .box-content.box-no-padding
+                        %ul.nav.nav-tabs.nav-tabs-simple
+                          %li.active
+                            %a.green-border{"data-toggle" => "tab", :href => "#users"}
+                              %i.icon-user.text-green
+                              Users
+                          %li
+                            %a.purple-border{"data-toggle" => "tab", :href => "#comments"}
+                              %i.icon-comments.text-purple
+                              Comments
+                          %li.dropdown
+                            %a.dropdown-toggle.orange-border{"data-toggle" => "dropdown", :href => "#"}
+                              Dropdown
+                              %b.caret.contrast-caret
+                            %ul.dropdown-menu
+                              %li
+                                %a{:href => "#"} Hi there!
+                        .tab-content
+                          #users.tab-pane.fade.in.active
+                            %ul.unstyled.users.list-hover.list-striped
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Guadalupe Ward
+                                  signed up
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:56:41 +0200"} May 30, 2013 - 20:56
+                                  %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Emerson Weissnat II
+                                  commented
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:57:41 +0200"} May 30, 2013 - 20:57
+                                  %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Elody O'Keefe
+                                  signed in
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:58:41 +0200"} May 30, 2013 - 20:58
+                                  %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Joana Zboncak
+                                  uploaded photo
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:59:41 +0200"} May 30, 2013 - 20:59
+                                  %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Zander Turner
+                                  signed in
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:00:41 +0200"} May 30, 2013 - 21:00
+                                  %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .action.pull-left
+                                  %a.text-contrast{:href => "#"} Miss Price Reynolds
+                                  commented
+                                %small.date.pull-right.muted
+                                  %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:01:41 +0200"} May 30, 2013 - 21:01
+                                  %i.icon-time
+                            .load-more
+                              %a#users-more-activity.btn.btn-block{"data-loading-text" => "&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more...", :href => "#"}
+                                %i.icon-circle-arrow-down
+                                Load more
+                          #comments.tab-pane.fade
+                            %ul.unstyled.comments.list-hover.list-striped
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Dorris Schmidt
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Aut saepe maxime repellendus eveniet dicta esse similique quod et atque qui eos provident.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:55:41 +0200"} May 30, 2013 - 21:55
+                                    %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Isabell Price
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Eos numquam ea veniam voluptate ullam quo explicabo et iusto ducimus voluptatibus aut consectetur.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 22:55:41 +0200"} May 30, 2013 - 22:55
+                                    %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Johnny Stracke
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Consequatur id iusto minus cumque perspiciatis ipsam laboriosam aut magnam dolor sunt placeat culpa.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 23:55:41 +0200"} May 30, 2013 - 23:55
+                                    %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Keanu Auer
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Et voluptates adipisci rem eveniet sint nisi in sequi animi.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-31 00:55:41 +0200"} May 31, 2013 - 00:55
+                                    %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Dr. Mervin D'Amore
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Iste odio est aut ut voluptas nostrum ullam sapiente perferendis ea est.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-31 01:55:41 +0200"} May 31, 2013 - 01:55
+                                    %i.icon-time
+                              %li
+                                .avatar.pull-left
+                                  .icon-user
+                                .body
+                                  .name
+                                    %a.text-contrast{:href => "#"} Mrs. Viola Towne
+                                  .actions
+                                    %a.btn.btn-link.ok.has-tooltip{:href => "#", :title => "Approve"}
+                                      %i.icon-thumbs-up
+                                    %a.btn.btn-link.remove.has-tooltip{:href => "#", :title => "Remove"}
+                                      %i.icon-thumbs-down
+                                  .text Fugiat est earum voluptas ipsum accusamus id quam vero molestiae praesentium magnam repellat aut.
+                                .text-right
+                                  %small.date.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-31 02:55:41 +0200"} May 31, 2013 - 02:55
+                                    %i.icon-time
+                            .load-more
+                              %a#comments-more-activity.btn.btn-block{"data-loading-text" => "&lt;i class='icon-spinner icon-spin'&gt;&lt;/i&gt; Loading more...", :href => "#"}
+                                %i.icon-circle-arrow-down
+                                Load more
+              .group-header
+                .row-fluid
+                  .span6.offset3
+                    .text-center
+                      %h2 Chat & Quick e-mail
+                      %small.muted You can send some message in chat below!
+              .row-fluid
+                .span6
+                  .chat.row-fluid
+                    .box.box-nomargin.span12
+                      .box-header.orange-background
+                        .title
+                          %i.icon-comments-alt
+                          Chat
+                        .actions
+                          %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                            %i.icon-remove
+                          %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                            %i
+                      .box-content.box-no-padding
+                        .scrollable{"data-scrollable-height" => "300", "data-scrollable-start" => "bottom"}
+                          %ul.unstyled.list-hover.list-striped
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Keith
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:04:41 +0200"} May 30, 2013 - 21:04
+                                    %i.icon-time
+                              .body
+                                Ut perferendis et voluptas voluptatem ut amet impedit velit sit.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:03:41 +0200"} May 30, 2013 - 21:03
+                                    %i.icon-time
+                              .body
+                                Fugit deleniti impedit eaque aut beatae blanditiis porro voluptatibus ad molestiae.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:02:41 +0200"} May 30, 2013 - 21:02
+                                    %i.icon-time
+                              .body
+                                Ullam dolorem pariatur amet inventore porro error.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Keith
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:01:41 +0200"} May 30, 2013 - 21:01
+                                    %i.icon-time
+                              .body
+                                Non alias et pariatur accusamus ut aut.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 21:00:41 +0200"} May 30, 2013 - 21:00
+                                    %i.icon-time
+                              .body
+                                Excepturi ratione neque velit maxime rerum mollitia libero ut et iusto sed ad.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:59:41 +0200"} May 30, 2013 - 20:59
+                                    %i.icon-time
+                              .body
+                                Saepe fugiat dolor necessitatibus sit non velit quia magnam et sapiente quidem libero.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:58:41 +0200"} May 30, 2013 - 20:58
+                                    %i.icon-time
+                              .body
+                                Voluptatibus optio sunt sed et.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Keith
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:57:41 +0200"} May 30, 2013 - 20:57
+                                    %i.icon-time
+                              .body
+                                Sunt aut.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:56:41 +0200"} May 30, 2013 - 20:56
+                                    %i.icon-time
+                              .body
+                                Animi totam repellendus debitis voluptates iste dolor consequatur.
+                            %li.message
+                              .avatar
+                                %img{:alt => "Avatar", :height => "23", :src => "img/panel/avatar.jpg", :width => "23"}/
+                              .name-and-time
+                                .name.pull-left
+                                  %small
+                                    %a.text-contrast{:href => "#"} Humberto
+                                .time.pull-right
+                                  %small.date.pull-right.muted
+                                    %span.timeago.fade.has-tooltip{"data-placement" => "top", :title => "2013-05-30 20:55:41 +0200"} May 30, 2013 - 20:55
+                                    %i.icon-time
+                              .body
+                                Ut nemo accusantium sit velit qui.
+                        %form.new-message{"accept-charset" => "UTF-8", :action => "#", :method => "post"}/
+                        %div{:style => "margin:0;padding:0;display:inline"}
+                          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                          %input{:name => "authenticity_token", :type => "hidden", :value => "CFC7d00LWKQsSahRqsfD+e/mHLqbaVIXBvlBGe/KP+I="}/
+                        %input#message_body.span12{:name => "message[body]", :placeholder => "Type your message here...", :type => "text"}/
+                        %button.btn.btn-success{:type => "submit"}
+                          %i.icon-plus
+                .span6
+                  .row-fluid
+                    .span12.box.box-nomargin
+                      .box-header.blue-background
+                        .title
+                          .icon-envelope-alt
+                          Quick e-mail
+                        .actions
+                          %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                            %i.icon-remove
+                          %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                            %i
+                      .box-content
+                        %input#email.span12{:name => "email", :placeholder => "E-mail", :type => "text", :value => ""}/
+                        %textarea#body_.span12.wysihtml5{:cols => "40", :name => "body[]", :placeholder => "Your message...", :rows => "5"}
+                          preserve                            
+                        .text-right
+                          %a.btn.btn-primary{:href => "#"} Send
+              .group-header
+                .row-fluid
+                  .span6.offset3
+                    .text-center
+                      %h2 Calendar & Tasks
+                      %small.muted Events in calendar can be dragged from day to another day, or you can extend event on more days!
+              .row-fluid
+                .span6
+                  .row-fluid
+                    .span12.box.box-bordered.purple-border.box-nomargin
+                      .box-header.purple-background
+                        .title
+                          %i.icon-calendar
+                          Calendar
+                      .box-content
+                        .full-calendar-demo
+                .span6
+                  .row-fluid
+                    .span12.box.box-nomargin
+                      .box-header.green-background
+                        .title
+                          .icon-tasks
+                          Tasks
+                        .actions
+                          %a.btn.box-remove.btn-mini.btn-link{:href => "#"}
+                            %i.icon-remove
+                          %a.btn.box-collapse.btn-mini.btn-link{:href => "#"}
+                            %i
+                      .box-content
+                        %ul.unstyled.tasks
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Cras sed tellus velit
+                              %small.pull-right 40%
+                            .progress.progress-small
+                              .bar{:style => "width: 40%"}
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Quis posuere tortor - maecenas in risus
+                              %small.pull-right 80%
+                            .progress.progress-danger.progress-small
+                              .bar{:style => "width: 80%"}
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Donec sodales justo in lacus sagittis
+                              %small.pull-right 58%
+                            .progress.progress-success.progress-small.progress-striped
+                              .bar{:style => "width: 68%"}
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Etiam condimentum sem nec
+                              %small.pull-right 100%
+                            .progress.progress-warning.progress-small
+                              .bar{:style => "width: 100%"}
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Etiam condimentum sem nec
+                              %small.pull-right 24%
+                            .progress.progress-info.progress-small
+                              .bar{:style => "width: 24%"}
+                          %li
+                            .task
+                              %span.pull-left
+                                %a{:href => "#"} Id mi placerat
+                              %small.pull-right 10%
+                            .progress.progress-success.progress-small
+                              .bar{:style => "width: 10%"}
+
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+    
+    = javascript_include_tag "restaurants_panel", "data-turbolinks-track" => true
+      
+    
