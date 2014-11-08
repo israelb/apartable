@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   # it depends about what resource is selected
   def layout_by_resource
-    if devise_controller? && resource_name == :restaurant && action_name == 'new'
+    if devise_controller? && resource_name == :restaurant 
       "restaurantes_login"
     else
       "application"

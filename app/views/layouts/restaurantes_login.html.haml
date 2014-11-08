@@ -17,8 +17,14 @@
   %body.is-wide
     #layout.wide-layout
       = render 'layouts/restaurantes/navigation'
-      = render 'layouts/messages'  
-      = yield
+    
+    .container
+      .content
+        .row
+          .col-md-12
+            .messeages-login-restaurant
+              = render 'layouts/messages'  
+            = yield
      
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
     = javascript_include_tag "restaurants", "data-turbolinks-track" => true    

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
-gem 'rails', '4.0.1'
+ruby '2.1.1'
+gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -14,12 +14,13 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'figaro'
-gem 'haml-rails'
-gem 'pg'
+gem 'haml-rails', '0.5.3'
+gem 'pg', '0.17.1'
 gem 'puma'
-gem 'rolify', '~> 3.3.0.rc4'
+gem 'rolify', '3.2.0'
 gem 'sendgrid'
 gem 'simple_form'
+gem 'nokogiri', '1.6.2.1'
 
 group :development do
   gem 'better_errors'
@@ -34,6 +35,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'annotate', :git => 'https://github.com/SamSaffron/annotate_models.git'
 end
 
 group :development, :test do

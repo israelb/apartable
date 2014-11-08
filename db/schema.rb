@@ -33,18 +33,6 @@ ActiveRecord::Schema.define(version: 20131121015920) do
   add_index "facebook_user_infos", ["facebook_user_id"], name: "index_facebook_user_infos_on_facebook_user_id", unique: true, using: :btree
   add_index "facebook_user_infos", ["user_id"], name: "index_facebook_user_infos_on_user_id", unique: true, using: :btree
 
-  create_table "oauth2_user_infos", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "uid",        null: false
-    t.string   "provider",   null: false
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "oauth2_user_infos", ["uid", "provider"], name: "index_oauth2_user_infos_on_uid_and_provider", unique: true, using: :btree
-
   create_table "restaurants", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -62,13 +50,6 @@ ActiveRecord::Schema.define(version: 20131121015920) do
 
   add_index "restaurants", ["email"], name: "index_restaurants_on_email", unique: true, using: :btree
   add_index "restaurants", ["reset_password_token"], name: "index_restaurants_on_reset_password_token", unique: true, using: :btree
-
-  create_table "restaurants_roles", id: false, force: true do |t|
-    t.integer "restaurant_id"
-    t.integer "role_id"
-  end
-
-  add_index "restaurants_roles", ["restaurant_id", "role_id"], name: "index_restaurants_roles_on_restaurant_id_and_role_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
