@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   rolify
   
   after_create :assign_default_role
-  #after_create :send_welcome_mail
+  after_create :send_welcome_mail
   
 
   # Virtual attribute for authenticating by either username or email
@@ -91,8 +91,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  protected
+
   def send_welcome_mail
-     Contact.welcome_email(self.email, self.name).deliver
+     UserMailer.welcome_email(self).deliver
   end
 
 
