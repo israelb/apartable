@@ -1,6 +1,7 @@
 Apartamesa::Application.routes.draw do
   get 'restaurantes', to: 'restaurants#home'
   get 'panel', to: 'restaurants#panel'
+  get 'admin', to: 'home#admin'
 
   root to: 'home#index'
 
