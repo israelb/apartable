@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  rolify # Rolify should be the first line
+  rolify
   
   after_create :assign_default_role
   #after_create :send_welcome_mail
@@ -16,13 +16,15 @@ class User < ActiveRecord::Base
          :trackable, :validatable,
          :authentication_keys => [:username] # log in whith username
 
+  
   validates :username, :presence => true, :uniqueness => {:case_sensitive => false}, :length => { :minimum => 3 }
             #:format => { :with => /\A[A-Z0-9a-z\w\b\ \-\_\'\!&@#\.]+\z/i,
             #:message => "may contain only alphanumeric characters and common special characters." }
 
   def assign_default_role
-    add_role(:admin)
+    self.add_role :admin
   end
+
 
 =begin
   def self.from_omniauth_twitter(auth_token)
@@ -43,7 +45,7 @@ class User < ActiveRecord::Base
     provider  = auth_token["provider"]
     username  = raw_info["username"]
 
-    where(auth_token.slice(:provider, :uid)).first_or_create do |user|
+    where(provider: auth_token.provider, uid: auth_token.uid).first_or_create do |user|
       user.provider   = auth_token.provider
       user.uid        = auth_token.uid
       user.username   = username

@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
-  end
+  #rescue_from CanCan::AccessDenied do |exception|
+  #  redirect_to root_path, :alert => exception.message
+  #end
 
   # When the resource (Devise) is trying to login we have to redirect them to the page right
   def after_sign_in_path_for(resource)

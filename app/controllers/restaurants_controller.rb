@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
     render layout: "restaurantes"
   end
 
+  # Panel admin for restarunts
   def panel
     render layout: "restaurantes_panel"
   end

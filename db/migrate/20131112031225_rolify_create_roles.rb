@@ -12,8 +12,13 @@ class RolifyCreateRoles < ActiveRecord::Migration
       t.references :role
     end
 
-    add_index(:roles, :name)
+    create_table(:restaurants_roles, :id => false) do |t|
+      t.references :restaurant
+      t.references :role
+    end
+
     add_index(:roles, [ :name, :resource_type, :resource_id ])
     add_index(:users_roles, [ :user_id, :role_id ])
+    add_index(:restaurants_roles, [ :restaurant_id, :role_id ])
   end
 end
