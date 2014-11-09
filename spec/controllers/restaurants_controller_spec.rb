@@ -1,13 +1,17 @@
-require 'spec_helper'
 
 describe RestaurantsController do
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:restaurants]
+    restaurant = FactoryGirl.create(:restaurant) # Using factory girl as an example
+    sign_in restaurant
+  end
+
   context "When you visit resturantes" do
     it "should have path restaurantes" do
       visit restaurantes_path
     end    
   end
   
-  login_restaurant
 
   it "should have a current_restaurant" do
     # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller

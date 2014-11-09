@@ -18,7 +18,7 @@ gem 'figaro'
 gem 'haml-rails', '0.5.3'
 gem 'pg', '0.17.1'
 gem 'puma'
-gem 'rolify', '~> 3.4.1'
+gem 'rolify', '3.4.1'
 gem 'sendgrid'
 gem 'simple_form'
 gem 'nokogiri', '1.6.2.1'
@@ -41,7 +41,8 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
+  gem 'rspec', '3.1.0'
+  gem 'rspec-rails', '3.1.0'
 end
 
 group :test do

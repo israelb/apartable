@@ -1,13 +1,19 @@
-require 'spec_helper'
 
 describe HomeController do
+
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:users]
+    user = FactoryGirl.create(:user)
+    #user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the confirmable module
+    sign_in user
+  end
+
   context "When you visit Home" do
     it "should have path root" do
       visit root_path
     end    
   end
   
-  login_user
 
   it "should have a current_user" do
     # note the fact that I removed the "validate_session" parameter if this was a scaffold-generated controller
@@ -23,6 +29,10 @@ describe HomeController do
 
   it "should be an admin" do
     subject.current_user.should be_has_role :admin
+  end
+
+  def login(user)
+    post login_path, :login => user.login, :password => 'password'
   end
 
 end
